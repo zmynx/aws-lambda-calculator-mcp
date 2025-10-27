@@ -1,0 +1,13 @@
+{
+  "gateway_url": "https://testgateway62929c4b-u1xmghyljz.gateway.bedrock-agentcore.us-east-1.amazonaws.com/mcp",
+  "gateway_id": "testgateway62929c4b-u1xmghyljz",
+  "region": "us-east-1",
+  "client_info": {
+    "client_id": "7fv67c27rptj0pa2fstn833ufn",
+    "client_secret": "11h1ftgg8l9ft1u228adripo5c0min88648ds7rleuatrr8rn2jr",
+    "user_pool_id": "us-east-1_vvsNmpb6Y",
+    "token_endpoint": "https://agentcore-d19c11a2.auth.us-east-1.amazoncognito.com/oauth2/token",
+    "scope": "TestGateway/invoke",
+    "domain_prefix": "agentcore-d19c11a2"
+  }
+}
