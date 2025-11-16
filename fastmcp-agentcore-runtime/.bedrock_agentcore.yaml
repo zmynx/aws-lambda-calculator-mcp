@@ -1,7 +1,7 @@
-default_agent: aws_lambda_calculator_fastmcp
+default_agent: aws_lambda_calculator_fastmcp_runtime
 agents:
-  aws_lambda_calculator_fastmcp:
-    name: aws_lambda_calculator_fastmcp
+  aws_lambda_calculator_fastmcp_runtime:
+    name: aws_lambda_calculator_fastmcp_runtime
     entrypoint: /Users/develeap/Desktop/Lior/aws-lambda-calculator-mcp/fastmcp-agentcore-runtime/main.py
     deployment_type: container
     runtime_type: null
@@ -10,8 +10,8 @@ agents:
     source_path: /Users/develeap/Desktop/Lior/aws-lambda-calculator-mcp/fastmcp-agentcore-runtime
     aws:
       execution_role: arn:aws:iam::006262944085:role/aws-lambda-calculator-fastmcp-role
-      execution_role_auto_create: false
-      account: "006262944085"
+      execution_role_auto_create: true
+      account: 006262944085
       region: us-east-1
       ecr_repository: 006262944085.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecr
       ecr_auto_create: false
@@ -28,18 +28,18 @@ agents:
         idle_runtime_session_timeout: null
         max_lifetime: null
     bedrock_agentcore:
-      agent_id: null
-      agent_arn: null
+      agent_id: aws_lambda_calculator_fastmcp_runtime-qjjkEwHUCs
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:006262944085:runtime/aws_lambda_calculator_fastmcp_runtime-qjjkEwHUCs
       agent_session_id: null
     codebuild:
-      project_name: null
-      execution_role: null
-      source_bucket: null
+      project_name: bedrock-agentcore-aws_lambda_calculator_fastmcp_runtime-builder
+      execution_role: arn:aws:iam::006262944085:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-1-c06ea5acb6
+      source_bucket: bedrock-agentcore-codebuild-sources-006262944085-us-east-1
     memory:
-      mode: STM_AND_LTM
+      mode: NO_MEMORY
       memory_id: null
       memory_arn: null
-      memory_name: aws_lambda_calculator_fastmcp_memory
+      memory_name: null
       event_expiry_days: 30
       first_invoke_memory_check_done: false
       was_created_by_toolkit: false

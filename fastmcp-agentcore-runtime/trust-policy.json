@@ -4,17 +4,15 @@
     {
       "Effect": "Allow",
       "Principal": {
-        "Service": "bedrock.amazonaws.com"
+        "Service": "bedrock-agentcore.amazonaws.com"
       },
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
           "aws:SourceAccount": "006262944085"
-        },
-        "ArnLike": {
-          "aws:SourceArn": "arn:aws:bedrock:us-east-1:006262944085:agent/*"
         }
       }
+
     }
   ]
 }

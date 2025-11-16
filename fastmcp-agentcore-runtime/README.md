@@ -33,9 +33,10 @@ This MCP (Model Context Protocol) server exposes AWS Lambda cost calculation too
 ## Prerequisites
 
 - Python 3.11+
-- Docker (for containerized deployment)
+- Docker or Podman (for containerized deployment)
 - AWS Account (for AgentCore deployment)
 - AWS CLI configured (for deployment)
+- uv (Python package manager) - `pip install uv`
 
 ## Local Development
 
@@ -85,7 +86,7 @@ docker build --platform linux/amd64 -t lambda-calculator-mcp:latest .
 ### Step 1: Install AgentCore Toolkit
 
 ```bash
-pip install bedrock-agentcore-starter-toolkit
+uv pip install bedrock-agentcore-starter-toolkit
 ```
 
 ### Step 2: Create AWS Resources
@@ -97,7 +98,9 @@ Before configuring AgentCore, you need to create the required AWS resources.
 ```bash
 aws ecr create-repository \
   --repository-name aws-lambda-calculator-fastmcp-ecr \
-  --region us-east-1
+  --region us-east-1 \
+  --image-scanning-configuration scanOnPush=true \
+  --encryption-configuration encryptionType=AES256
 ```
 
 #### Create IAM Role
@@ -112,15 +115,12 @@ cat > trust-policy.json <<'EOF'
     {
       "Effect": "Allow",
       "Principal": {
-        "Service": "bedrock.amazonaws.com"
+        "Service": "bedrock-agentcore.amazonaws.com"
       },
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
           "aws:SourceAccount": "<YOUR_ACCOUNT_ID>"
-        },
-        "ArnLike": {
-          "aws:SourceArn": "arn:aws:bedrock:us-east-1:<YOUR_ACCOUNT_ID>:agent/*"
         }
       }
     }
@@ -129,7 +129,7 @@ cat > trust-policy.json <<'EOF'
 EOF
 ```
 
-**Note**: Replace `<YOUR_ACCOUNT_ID>` with your AWS account ID (e.g., `548982503441`).
+**Note**: Replace `<YOUR_ACCOUNT_ID>` with your AWS account ID (e.g., `006262944085`).
 
 Create the IAM role:
 
@@ -175,13 +175,15 @@ aws iam get-role \
 ### Step 3: Configure AgentCore
 
 ```bash
-uv run agentcore configure -e main.py --protocol MCP
+uv run agentcore configure --entrypoint main.py --protocol MCP
 ```
 
 This will prompt you for:
-- **IAM execution role ARN**: `arn:aws:iam::<YOUR_ACCOUNT_ID>:role/aws-lambda-calculator-fastmcp-role`
-- **ECR registry URL**: `<YOUR_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-calculator-fastmcp-role`
+- **IAM execution role ARN**: `arn:aws:iam::006262944085:role/aws-lambda-calculator-fastmcp-role`
+- **ECR registry URL**: `006262944085.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecr`
 - **Region**: `us-east-1` (optional)
+- **Container runtime**: `podman` (or `docker`)
+- **Platform**: `linux/arm64`
 
 ### Step 4: Deploy to AWS
 
