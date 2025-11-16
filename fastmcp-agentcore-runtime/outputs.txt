@@ -1,0 +1,149 @@
+Configuring Bedrock AgentCore...
+✓ Using file: main.py
+
+🏷️  Inferred agent name: main
+Press Enter to use this name, or type a different one (alphanumeric without '-')
+Agent name [main]:
+
+
+
+
+
+
+                    Agent name [main]: aws_lambda_calculator_fastmcp_runtime
+
+
+
+
+
+
+                                                        Agent name [main]: aws_lambda_calculator_fastmcp_runtime
+✓ Using agent name: aws_lambda_calculator_fastmcp_runtime
+
+🔍 Detected dependency file: requirements.txt
+Press Enter to use this file, or type a different path (use Tab for autocomplete):
+Path or Press Enter to use detected dependency file: requirements.txt
+
+
+
+
+
+
+                                                                      Path or Press Enter to use detected dependency file: requirements.txt
+✓ Using requirements file: requirements.txt
+
+🚀 Deployment Configuration
+Select deployment type:
+  1. Direct Code Deploy (recommended) - Python only, no Docker required
+  2. Container - For custom runtimes or complex dependencies
+Choice [1]: 1
+
+
+
+
+
+
+               2Choice [1]: 2
+✓ Deployment type: Container
+
+🔐 Execution Role
+Press Enter to auto-create execution role, or provide execution role ARN/name to use existing
+Execution role ARN/name (or press Enter to auto-create):
+
+
+
+
+
+
+                                                          arn:aws:iam::006262944                                                                               0
+85:role/aws-lambda-calculator-fastmcp-roleExecution role ARN/name (or press Enter to auto-create): arn:aws:iam::006262944                                                                               0
+85:role/aws-lambda-calculator-fastmcp-role
+✓ Using existing execution role: arn:aws:iam::006262944085:role/aws-lambda-calculator-fastmcp-role
+
+🏗️  ECR Repository
+Press Enter to auto-create ECR repository, or provide ECR Repository URI to use existing
+ECR Repository URI (or press Enter to auto-create):
+
+
+
+
+
+
+                                                     006262944085.dkr.ecr.us-eas                                                                               t
+-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecrECR Repository URI (or press Enter to auto-create): 006262944085.dkr.ecr.us-eas                                                                               t
+-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecr
+✓ Using existing ECR repository: 006262944085.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecr
+
+🔐 Authorization Configuration
+By default, Bedrock AgentCore uses IAM authorization.
+Configure OAuth authorizer instead? (yes/no) [no]:
+
+
+
+
+
+
+                                                    noConfigure OAuth authorizer instead? (yes/no) [no]: no
+✓ Using default IAM authorization
+
+🔒 Request Header Allowlist
+Configure which request headers are allowed to pass through to your agent.
+Common headers: Authorization, X-Amzn-Bedrock-AgentCore-Runtime-Custom-*
+Configure request header allowlist? (yes/no) [no]:
+
+
+
+
+
+
+                                                    noConfigure request header allowlist? (yes/no) [no]: no
+✓ Using default request header configuration
+
+Memory Configuration
+Tip: Use --disable-memory flag to skip memory entirely
+
+Existing memory resources found:
+  1. aws_lambda_calculator_fastmcp_mem-DfGITY
+     ID: aws_lambda_calculator_fastmcp_mem-DfGITYCfnp
+
+Options:
+  • Enter a number to use existing memory
+  • Press Enter to create new memory
+  • Type 's' to skip memory setup
+Your choice:
+
+
+
+
+
+
+              sYour choice: s
+✓ Skipping memory configuration
+
+⚠️ Platform mismatch: Current system is 'linux/amd64' but Bedrock AgentCore requires 'linux/arm64', so local builds won't work.
+Please use default launch command which will do a remote cross-platform build using code build.For deployment other options and workarounds, see: 
+https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/getting-started-custom.html
+
+╭─────────────────────────────────────────────────────────────────────────────────────────────────── Configuration Success ────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Agent Details                                                                                                                                                                                                                │
+│ Agent Name: aws_lambda_calculator_fastmcp_runtime                                                                                                                                                                            │
+│ Deployment: container                                                                                                                                                                                                        │
+│ Region: us-east-1                                                                                                                                                                                                            │
+│ Account: 006262944085                                                                                                                                                                                                        │
+│                                                                                                                                                                                                                              │
+│ Configuration                                                                                                                                                                                                                │
+│ Execution Role: arn:aws:iam::006262944085:role/aws-lambda-calculator-fastmcp-role                                                                                                                                            │
+│ ECR Repository: 006262944085.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecr                                                                                                                               │
+│ Network Mode: Public                                                                                                                                                                                                         │
+│ ECR Repository: 006262944085.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecr                                                                                                                               │
+│ Authorization: IAM (default)                                                                                                                                                                                                 │
+│                                                                                                                                                                                                                              │
+│                                                                                                                                                                                                                              │
+│ Memory: Disabled                                                                                                                                                                                                             │
+│                                                                                                                                                                                                                              │
+│                                                                                                                                                                                                                              │
+│ 📄 Config saved to: /Users/develeap/Desktop/Lior/aws-lambda-calculator-mcp/fastmcp-agentcore-runtime/.bedrock_agentcore.yaml                                                                                                 │
+│                                                                                                                                                                                                                              │
+│ Next Steps:                                                                                                                                                                                                                  │
+│    agentcore launch                                                                                                                                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
