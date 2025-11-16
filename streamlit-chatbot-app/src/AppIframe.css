@@ -1,0 +1,115 @@
+.iframe-demo-page {
+  min-height: 100vh;
+  background: #f7fafc;
+}
+
+.iframe-demo-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.iframe-demo-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.iframe-demo-header p {
+  margin: 0;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.iframe-demo-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.content-section {
+  background: white;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-section {
+  margin-bottom: 30px;
+}
+
+.chatbot-section h2 {
+  margin: 0 0 8px 0;
+  color: #2d3748;
+  font-size: 28px;
+  text-align: center;
+}
+
+.chatbot-section > p {
+  margin: 0 0 20px 0;
+  color: #4a5568;
+  text-align: center;
+  font-size: 16px;
+}
+
+.chatbot-iframe-container {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.chatbot-iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  display: block;
+}
+
+.content-section h2 {
+  margin: 0 0 16px 0;
+  color: #2d3748;
+  font-size: 24px;
+}
+
+.content-section p {
+  margin: 0 0 12px 0;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.content-section ul {
+  margin: 0;
+  padding-left: 24px;
+  color: #4a5568;
+}
+
+.content-section li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .iframe-demo-header h1 {
+    font-size: 28px;
+  }
+
+  .iframe-demo-header p {
+    font-size: 16px;
+  }
+
+  .iframe-demo-content {
+    padding: 20px 10px;
+  }
+
+  .content-section {
+    padding: 20px;
+  }
+
+  .chatbot-iframe {
+    height: 600px;
+  }
+}

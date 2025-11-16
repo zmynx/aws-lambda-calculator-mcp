@@ -1,0 +1,155 @@
+.message {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.user {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.message.user .message-avatar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.message.assistant .message-avatar {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+.message.error .message-avatar {
+  background: #feb2b2;
+  color: #742a2a;
+}
+
+.message-content {
+  flex: 1;
+  max-width: 70%;
+}
+
+.message.user .message-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.message-text {
+  background: #f7fafc;
+  padding: 12px 16px;
+  border-radius: 12px;
+  line-height: 1.6;
+  color: #2d3748;
+  word-wrap: break-word;
+}
+
+.message.user .message-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 12px;
+}
+
+.message.assistant .message-text {
+  background: #edf2f7;
+  border-radius: 12px 12px 12px 0;
+}
+
+.message.error .message-text {
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+}
+
+.message-time {
+  font-size: 11px;
+  color: #a0aec0;
+  margin-top: 4px;
+  padding: 0 4px;
+}
+
+.message.loading .message-content {
+  background: #edf2f7;
+  padding: 12px 16px;
+  border-radius: 12px 12px 12px 0;
+}
+
+.message.thinking .message-text {
+  font-style: italic;
+  color: #718096;
+}
+
+.thinking-dots {
+  display: inline-block;
+  margin-left: 2px;
+}
+
+.thinking-dots span {
+  animation: thinkingDot 1.4s infinite;
+  opacity: 0;
+}
+
+.thinking-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.thinking-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes thinkingDot {
+  0%, 60%, 100% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .message-content {
+    max-width: 85%;
+  }
+
+  .message-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .message-avatar svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .message-text {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}

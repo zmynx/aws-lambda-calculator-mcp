@@ -1,0 +1,92 @@
+.chat-input {
+  background: white;
+  padding: 20px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.input-wrapper textarea {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: none;
+  min-height: 44px;
+  max-height: 120px;
+  transition: border-color 0.2s;
+}
+
+.input-wrapper textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.input-wrapper textarea:disabled {
+  background: #f7fafc;
+  cursor: not-allowed;
+}
+
+.input-wrapper button {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.input-wrapper button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.input-wrapper button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.input-wrapper button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: #718096;
+}
+
+.input-hints span {
+  background: #edf2f7;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .chat-input {
+    padding: 15px;
+  }
+
+  .input-hints {
+    flex-direction: column;
+  }
+
+  .input-hints span {
+    font-size: 11px;
+  }
+}
