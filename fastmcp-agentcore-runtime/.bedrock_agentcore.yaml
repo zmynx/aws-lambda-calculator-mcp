@@ -1,0 +1,48 @@
+default_agent: aws_lambda_calculator_fastmcp
+agents:
+  aws_lambda_calculator_fastmcp:
+    name: aws_lambda_calculator_fastmcp
+    entrypoint: /Users/develeap/Desktop/Lior/aws-lambda-calculator-mcp/fastmcp-agentcore-runtime/main.py
+    deployment_type: container
+    runtime_type: null
+    platform: linux/arm64
+    container_runtime: podman
+    source_path: /Users/develeap/Desktop/Lior/aws-lambda-calculator-mcp/fastmcp-agentcore-runtime
+    aws:
+      execution_role: arn:aws:iam::006262944085:role/aws-lambda-calculator-fastmcp-role
+      execution_role_auto_create: false
+      account: "006262944085"
+      region: us-east-1
+      ecr_repository: 006262944085.dkr.ecr.us-east-1.amazonaws.com/aws-lambda-calculator-fastmcp-ecr
+      ecr_auto_create: false
+      s3_path: null
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: MCP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: null
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: null
+      agent_arn: null
+      agent_session_id: null
+    codebuild:
+      project_name: null
+      execution_role: null
+      source_bucket: null
+    memory:
+      mode: STM_AND_LTM
+      memory_id: null
+      memory_arn: null
+      memory_name: aws_lambda_calculator_fastmcp_memory
+      event_expiry_days: 30
+      first_invoke_memory_check_done: false
+      was_created_by_toolkit: false
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null
